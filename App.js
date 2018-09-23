@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { View  } from 'react-native';
-import MainApp from './src/MainApp';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './src/reducers';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+
+import logger from 'redux-logger';
+
+import navigation from './src/reducers';
+
 import { Navigator } from './src/Navigator'
 
-const store = createStore(reducer);
+
+const reducer = combineReducers({ navigation })
+const store = createStore(reducer, applyMiddleware(logger));
 
 
 class App extends Component {
