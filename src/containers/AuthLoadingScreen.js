@@ -12,12 +12,16 @@ import { signIn } from '../actions'
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props)
-    store.subscribe(() => this.handleChange())
-    store.dispatch(signIn(false))
+    store.subscribe(() => this.handleChange(store.getState().signedIn))
+    this.bootstrapAsync()
   }
 
-  handleChange = () => {
-    const signedIn = store.getState().signedIn
+  bootstrapAsync = async () => {
+    const userToken = await AsyncStorage.getItem('userToken');
+    this.handleChange(userToken)
+  };
+
+  handleChange = (signedIn) => {
     if (signedIn) {
       this.props.navigation.navigate('PostList');
     } else {
@@ -25,10 +29,7 @@ class AuthLoadingScreen extends React.Component {
     }
   }
 
-  // Render any loading content that you like here
   render() {
-
-
     return (
       <ActivityIndicator />
     );

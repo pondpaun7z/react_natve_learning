@@ -46,7 +46,6 @@ class PostList extends React.Component {
   loadPosts = () => {
     axios.get(`${BASE_URL}/posts`)
       .then((response) => {
-        console.log(response)
         this.setState({
           posts: response.data
         })
