@@ -6,29 +6,29 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { store } from '../store'
+import { signIn } from '../actions'
 
 class AuthLoadingScreen extends React.Component {
-  constructor() {
-    super()
-    this._bootstrapAsync();
+  constructor(props) {
+    super(props)
+    store.subscribe(() => this.handleChange())
+    store.dispatch(signIn(false))
   }
 
-  // Fetch the token from storage then navigate to our appropriate place
-  _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
-
-    // This will switch to the App screen or Auth screen and this loading
-    // screen will be unmounted and thrown away.
-    console.log(userToken)
-    if (userToken) {
+  handleChange = () => {
+    const signedIn = store.getState().signedIn
+    if (signedIn) {
       this.props.navigation.navigate('PostList');
     } else {
       this.props.navigation.navigate('PageOne');
     }
-  };
+  }
 
   // Render any loading content that you like here
   render() {
+
+
     return (
       <ActivityIndicator />
     );

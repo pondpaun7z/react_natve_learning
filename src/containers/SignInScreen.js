@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, Button, AsyncStorage } from 'react-native'
+import { store } from '../store'
+import { signIn } from '../actions'
 
 class SignInScreen extends React.Component {
   static navigationOptions = {
@@ -15,8 +17,8 @@ class SignInScreen extends React.Component {
   }
 
   _signInAsync = async () => {
+    store.dispatch(signIn(true))
     await AsyncStorage.setItem('userToken', 'abc');
-    this.props.navigation.navigate('AuthLoadingScreen');
   };
 }
 

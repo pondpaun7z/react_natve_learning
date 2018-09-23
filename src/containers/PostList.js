@@ -3,7 +3,8 @@ import { View, Text, Button, AsyncStorage} from 'react-native'
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { BASE_URL } from '../constants';
-import * as actions from '../actions';
+import { store } from '../store'
+import { signIn } from '../actions'
 
 class PostList extends React.Component {
   static navigationOptions = {
@@ -25,7 +26,7 @@ class PostList extends React.Component {
 
   signOut = async () => {
     await AsyncStorage.clear();
-    this.props.navigation.navigate('AuthLoadingScreen');
+    store.dispatch(signIn(false))
   };
 
   loadPosts = () => {
@@ -49,5 +50,5 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps, actions)(PostList)
+export default PostList
 

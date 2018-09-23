@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { View  } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-
-import logger from 'redux-logger';
-
-import navigation from './src/reducers';
-
+import { store } from './src/store';
 import Nav from './src/Navigator'
 
-const reducer = combineReducers({ navigation })
-const store = createStore(reducer, applyMiddleware(logger));
+
 
 class App extends Component {
   render() {
@@ -21,6 +15,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App
