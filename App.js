@@ -9,10 +9,8 @@ import navigation from './src/reducers';
 
 import Nav from './src/Navigator'
 
-
 const reducer = combineReducers({ navigation })
 const store = createStore(reducer, applyMiddleware(logger));
-
 
 class App extends Component {
   render() {

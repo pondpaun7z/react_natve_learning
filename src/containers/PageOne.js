@@ -4,7 +4,7 @@ import {
   Text,
   Button
 } from 'react-native';
-import { signIn } from '../actions'
+import * as actions from '../actions';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -41,12 +41,9 @@ class PageOne extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  // navigation: state.navigation
+
 })
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ signIn }, dispatch)
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(PageOne)
+export default connect(mapStateToProps, actions)(PageOne)
 

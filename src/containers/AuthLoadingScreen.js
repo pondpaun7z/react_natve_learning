@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 
 class AuthLoadingScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super()
     this._bootstrapAsync();
   }
 
@@ -19,8 +19,9 @@ class AuthLoadingScreen extends React.Component {
 
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
+    console.log(userToken)
     if (userToken) {
-      this.props.navigation.navigate('PageTwo', { name: 'Pond' });
+      this.props.navigation.navigate('PostList');
     } else {
       this.props.navigation.navigate('PageOne');
     }
@@ -29,10 +30,7 @@ class AuthLoadingScreen extends React.Component {
   // Render any loading content that you like here
   render() {
     return (
-      <View>
-        <ActivityIndicator />
-        <StatusBar barStyle="default" />
-      </View>
+      <ActivityIndicator />
     );
   }
 }
