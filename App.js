@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 
 import navigation from './src/reducers';
 
-import { Navigator } from './src/Navigator'
+import Nav from './src/Navigator'
 
 
 const reducer = combineReducers({ navigation })
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return(
       <Provider store={store}>
-        <Navigator />
+        <Nav />
       </Provider>
     );
   }

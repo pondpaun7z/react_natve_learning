@@ -1,7 +1,11 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
 
-class PageTow extends React.Component {
+class PageTwo extends React.Component {
+  static navigationOptions = {
+    title: 'Page Two'
+  };
+
   render() {
     const { navigate } = this.props.navigation
     const { params } = this.props.navigation.state
@@ -15,4 +19,4 @@ class PageTow extends React.Component {
   }
 }
 
-export default PageTow
+export default PageTwo

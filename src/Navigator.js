@@ -9,21 +9,27 @@ export const Navigator = new createStackNavigator({
   PageTwo: { screen: PageTwo },
 },{
   initialRouteName: 'PageOne',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
 })
 
 class Nav extends Component {
   render() {
     return (
-      <Navigator navigation={addNavigationHelpers({
-        dispatch: this.props.dispatch,
-        state: this.props.navigation,
-      })} />
+      <Navigator />
     )
   }
 }
 
 const mapStateToProps = state => ({
-  navigation: state.navigation,
+  navigation: state.navigation
 })
 
 export default connect(mapStateToProps)(Nav)

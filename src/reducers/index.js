@@ -1,22 +1,20 @@
-import { ADD_REMINDER } from '../constants'
+import { SIGNED_IN } from '../constants'
 
-const reminder = (action) => {
+const signed_in = (signed_in) => {
   return {
-    text: action.text,
-    id: Math.random()
+    signed_in
   }
 }
 
-const reminders = (state = [], action) => {
-  let reminders = null;
+const sign_in = (state = [], action) => {
   switch(action.type) {
-    case ADD_REMINDER:
-      reminders = [...state, reminder(action)]
-      console.log('reminder as state', reminders)
-      return reminders;
+    case SIGNED_IN:
+      sign_in = [...state, signed_in(action)]
+      console.log('signed_in as state', sign_in)
+      return sign_in;
     default:
       return state
   }
 }
 
-export default reminders;
+export default sign_in;
