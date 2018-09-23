@@ -17,6 +17,10 @@ class PageOne extends React.Component {
     this.props.signIn(true)
   }
 
+  goToLogin() {
+    this.props.navigation.navigate('SignInScreen');
+  }
+
   render() {
     const { navigate } = this.props.navigation
 
@@ -28,6 +32,9 @@ class PageOne extends React.Component {
 
         <Button onPress={() => this.signIn()}
           title="Sign In" />
+
+        <Button onPress={() => this.goToLogin()}
+          title="Login" />
       </View>
     )
   }
