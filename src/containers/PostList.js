@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { BASE_URL } from '../constants';
 import { store } from '../store'
 import { signIn } from '../actions'
+import Card from '../components/Card'
 
 class PostList extends React.Component {
   static navigationOptions = {
@@ -30,7 +31,7 @@ class PostList extends React.Component {
 
         <FlatList
           data={this.state.posts}
-          renderItem={({item}) => <Text>{item.title}</Text> }
+          renderItem={({item}) => <Card post={item} /> }
           keyExtractor={({id}, index) => id.toString()}
         />
 
