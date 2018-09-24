@@ -7,6 +7,7 @@ import PageTwo from './containers/PageTwo';
 import AuthLoadingScreen from './containers/AuthLoadingScreen';
 import SignInScreen from './containers/SignInScreen';
 import PostList from './containers/PostList';
+import PostDetail from './containers/PostDetail';
 
 export const Navigator = new createStackNavigator({
   PageOne: { screen: PageOne },
@@ -14,6 +15,7 @@ export const Navigator = new createStackNavigator({
   AuthLoadingScreen: { screen: AuthLoadingScreen },
   SignInScreen: { screen: SignInScreen },
   PostList: { screen: PostList },
+  PostDetail: { screen: PostDetail },
 },{
   initialRouteName: 'AuthLoadingScreen',
   navigationOptions: {

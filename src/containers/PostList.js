@@ -31,7 +31,7 @@ class PostList extends React.Component {
 
         <FlatList
           data={this.state.posts}
-          renderItem={({item}) => <Card post={item} /> }
+          renderItem={({item}) => <Card post={item} navigation={this.props.navigation}/> }
           keyExtractor={({id}, index) => id.toString()}
         />
 
